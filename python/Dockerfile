@@ -3,11 +3,10 @@ from rojima1/base
 USER root
 WORKDIR /home/root
 
-RUN apt-get update
-
 # OpenCV
 
-RUN apt-get install -y \
+RUN apt-get update && \
+    apt-get install -y \
       ant \
       build-essential \
       cmake \
@@ -82,7 +81,8 @@ RUN wget -q -O opencv-3.2.0.zip https://github.com/opencv/opencv/archive/3.2.0.z
 
 # TensorFlow
 
-RUN apt-get -y install \
+RUN apt-get update && \
+    apt-get -y install \
       libcupti-dev \
       python3-pip \
       python3-tk \
@@ -92,8 +92,11 @@ RUN apt-get -y install \
 
 RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list && \
     wget -q -O - https://bazel.build/bazel-release.pub.gpg | sudo apt-key add - && \
-    apt-get update && apt-get install -y \
-      bazel
+    apt-get update && \
+    apt-get install -y \
+      bazel && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN wget -q -O tensorflow-1.2.1.zip https://github.com/tensorflow/tensorflow/archive/v1.2.1.zip && \
     unzip tensorflow-1.2.1 && \
