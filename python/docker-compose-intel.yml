@@ -2,7 +2,7 @@ version: '3'
 
 services:
   app:
-    image: rojima1/clojure
+    image: rojima1/python
     privileged: true
     command: emacs
     environment:
