@@ -141,7 +141,7 @@ RUN wget -q -O tensorflow-1.2.1.zip https://github.com/tensorflow/tensorflow/arc
       expect \"Please specify the location where cuDNN  library is installed. Refer to README.md for more details.\"; \
       send \"\n\"; \
       expect \"Please note that each additional compute capability significantly increases your build time and binary size.\"; \
-      send \"\n\"; \
+      send \"5.2,6.1\n\"; \
       expect eof;" && \
     bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package && \
     ./bazel-bin/tensorflow/tools/pip_package/build_pip_package . && \
