@@ -89,7 +89,7 @@
 
 (defun init-elpy ()
   (elpy-enable)
-  (pyvenv-activate "~/Documents/Projects/python_ws"))
+  (setq elpy-rpc-python-command "python3"))
 
 ;; markdown-modeを設定します。
 
