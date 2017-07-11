@@ -1,4 +1,4 @@
-from rojima1/base-cuda
+FROM rojima1/base-cuda
 
 USER root
 WORKDIR /home/root

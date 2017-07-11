@@ -1,4 +1,4 @@
-from rojima1/base
+FROM rojima1/base
 
 USER root
 WORKDIR /home/root
