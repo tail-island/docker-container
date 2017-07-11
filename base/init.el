@@ -89,7 +89,8 @@
 
 (defun init-elpy ()
   (elpy-enable)
-  (setq elpy-rpc-python-command "python3"))
+  (setq elpy-rpc-python-command "python3")
+  (setq python-shell-interpreter "python3"))
 
 ;; markdown-modeを設定します。
 
