@@ -17,7 +17,8 @@ RUN dpkg --add-architecture i386 && \
 
 RUN wget -q -O android-studio.zip https://dl.google.com/dl/android/studio/ide-zips/2.3.3.0/android-studio-ide-162.4069837-linux.zip && unzip android-studio.zip && mv android-studio /opt && \
     groupadd --gid 130 kvm && \
-    gpasswd --add developer kvm
+    gpasswd --add developer kvm && \  # コンテナ内ではファイルのACLが使えないみたいなので、KVMできるようにグループに追加しておきます。
+    gpasswd --add developer audio     # 同上。Androidの実機は、root:audioでマウントされるみたい。
 
 USER developer
 WORKDIR /home/developer
