@@ -149,11 +149,12 @@ RUN wget -q -O tensorflow-1.2.1.zip https://github.com/tensorflow/tensorflow/arc
     cd .. && \
     rm -rf tensorflow-1.2.1.zip tensorflow-1.2.1 /tmp/tensorflow_pkg
 
-# And etc.
+# Keras
 
 RUN pip3 install \
       funcy \
       h5py \
+      keras \
       matplotlib
 
 ####
