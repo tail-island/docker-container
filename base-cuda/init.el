@@ -36,6 +36,13 @@
   (setq x-select-enable-clipboard t)
   (add-hook 'before-save-hook 'delete-trailing-whitespace))
 
+;; インデントを設定します。
+
+(defun init-indent ()
+  (setq c-basic-offset    2)
+  (setq css-indent-offset 2)
+  (setq js-indent-level   2))
+
 ;; キーボードを設定します。
 
 (defun init-keyboard ()
@@ -105,6 +112,7 @@
 (init-language)
 (init-appearance)
 (init-behavior)
+(init-indent)
 (init-keyboard)
 (init-input-method)
 (init-helm)
