@@ -51,7 +51,7 @@ RUN git clone https://ceres-solver.googlesource.com/ceres-solver && \
     mkdir ceres-solver/build && \
     cd ceres-solver/build && \
     cmake -D CMAKE_BUILD_TYPE=Release .. && \
-    make -j16 && \
+    make -j8 && \
     make install && \
     rm -rf ceres-solver
 
@@ -77,7 +77,7 @@ RUN wget -q -O opencv-3.2.0.zip https://github.com/opencv/opencv/archive/3.2.0.z
       -D WITH_QT=ON \
       -D WITH_TBB=ON \
       .. && \
-    make -j16 && \
+    make -j8 && \
     make install && \
     rm -rf opencv-3.2.0.zip opencv-3.2.0 opencv_contrib-3.2.0.zip opencv_contrib-3.2.0
 
