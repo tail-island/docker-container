@@ -92,13 +92,18 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list && \
-    wget -q -O - https://bazel.build/bazel-release.pub.gpg | sudo apt-key add - && \
-    apt-get update && \
-    apt-get install -y \
-      bazel && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+# RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list && \
+#     wget -q -O - https://bazel.build/bazel-release.pub.gpg | sudo apt-key add - && \
+#     apt-get update && \
+#     apt-get install -y \
+#       bazel && \
+#     apt-get clean && \
+#     rm -rf /var/lib/apt/lists/*
+
+RUN wget -q -O bazel-0.5.2-installer-linux-x86_64.sh https://github.com/bazelbuild/bazel/releases/download/0.5.2/bazel-0.5.2-installer-linux-x86_64.sh && \
+    chmod +x bazel-0.5.2-installer-linux-x86_64.sh && \
+    ./bazel-0.5.2-installer-linux-x86_64.sh && \
+    rm -rf bazel-0.5.2-installer-linux-x86_64.sh
 
 RUN wget -q -O tensorflow-1.2.1.zip https://github.com/tensorflow/tensorflow/archive/v1.2.1.zip && \
     unzip tensorflow-1.2.1 && \
