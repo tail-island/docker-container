@@ -75,6 +75,7 @@
   (setq nrepl-hide-special-buffers t)
   (setq cider-repl-display-help-banner nil)
   (setq cider-show-error-buffer nil)
+  (setq cider-lein-parameters "repl :headless :host localhost")
   (define-clojure-indent
     (apply                 1)
     ;; for compojure
